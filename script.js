@@ -18,3 +18,16 @@ const sidebar = document.getElementById('sidebar');
 menuBar.addEventListener('click', function () {
     sidebar.classList.toggle('hide');
 })
+
+
+if(window.innerWidth < 768) {
+	sidebar.classList.add('hide');
+} else if(window.innerWidth < 768){
+	const searchButton = document.querySelector('#content nav form .form-input button');
+	const searchForm = document.querySelector('#content nav form');
+
+	searchButton.addEventListener('click', function (e) {
+		e.preventDefault();
+		searchForm.classList.toggle('show');
+	})
+}

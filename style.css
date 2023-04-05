@@ -59,6 +59,7 @@ body {
 	font-family: var(---lato);
 	transition: .3s ease;
 	overflow-x: hidden;
+	scrollbar-width: none;
 }
 
 #sidebar.hide {
@@ -72,6 +73,13 @@ body {
 	display: flex;
 	align-items: center;
 	color: var(--blue);
+	position: sticky;
+	top: 0;
+	left: 0;
+	background: var(--light);
+	z-index: 500;
+	padding-bottom: 20px;
+	box-sizing: content-box;
 }
 
 #sidebar .brand .bx {
@@ -179,7 +187,10 @@ body {
 	align-items: center;
 	grid-gap: 24px;
 	font-family: var(--lato);
-	position: relative;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 1000;
 }
 
 #content nav::before{
@@ -199,6 +210,7 @@ body {
 
 #content nav .bx.bx-menu {
 	cursor: pointer;
+	color: var(--dark);
 }
 
 #content nav .nav-link {
@@ -230,6 +242,8 @@ body {
 	background: var(--grey);
 	border-radius: 36px 0 0 36px;
 	outline: none;
+	width: 100%;
+	color: var(--dark);
 }
 
 #content nav .form-input button {
@@ -263,6 +277,7 @@ body {
 	background: var(--red);
 	color: var(--light);
 	font-weight: 700;
+	font-size: 12px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -275,3 +290,51 @@ body {
 }
 /* NAVBAR */
 /* CONTENT */
+
+
+
+
+
+
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+	#sidebar{
+		width: 200px;
+	}
+	#content {
+		width: calc(100% - 60px);
+		left: 200px;
+	}
+	#content nav .nav-link{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	#content nav form .form-input input {
+		display: none;
+	}
+
+	#content nav form .form-input button {
+		width: auto;
+		height: auto;
+		background: transparent;
+		border-radius: none;
+		color: var(--dark);
+	}
+
+	#content nav form.show  .form-input input {
+		display: block;
+		width: 100%;
+	}
+
+	#content nav form.show  .form-input button{
+		width: 36px;
+		height: 100%;
+		border-radius: 0 36px 36px 0;
+		color: var(--light);
+		background: var(--blue);
+	}
+}
